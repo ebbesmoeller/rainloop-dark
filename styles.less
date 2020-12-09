@@ -1,0 +1,804 @@
+@primaryColor: #555;
+@primaryTextColor: #eee;
+
+@backgroundColor: #222;
+@backgroundTextColor: #eee;
+
+@darkTextColor: #bdbdbd;
+@darkBackgroundColor: #333;
+
+@messageTextColor: #333;
+@messageBackgroundColor: #ffffff;
+
+@buttonBorderRadius: 20px;
+@contentBorderRadius: 20px;
+
+
+
+// MAIN
+@main-color: @darkTextColor;
+@main-background-color: @backgroundColor;
+
+// LOADING
+@loading-color: @backgroundTextColor;
+@loading-text-shadow: none;
+@spinner-background: @backgroundColor;
+@spinner-color: @backgroundTextColor;
+
+// SETTINGS
+@settings-menu-color: @darkTextColor;
+@settings-menu-disabled-color: darken(@darkTextColor, 40%);
+@settings-menu-selected-color: @darkTextColor;
+@settings-menu-selected-background-color: @darkBackgroundColor;
+@settings-menu-selected-rgba-background-color: false;
+@settings-menu-hover-color: @darkTextColor;
+@settings-menu-hover-background-color: @darkBackgroundColor;
+@settings-menu-hover-rgba-background-color: false;
+
+.b-settins-left {
+    .b-content {
+        left: 10px;
+        top: 54px;
+    }
+
+    & .e-item {
+        & .e-link {
+            height: 26px;
+            line-height: 26px;
+            border-radius: @contentBorderRadius;
+            margin-bottom: 5px;
+            border: 1px solid transparent;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        &:active .e-link,
+        &:hover .e-link,
+        &.selected .e-link {
+            border: 1px solid lighten(@darkBackgroundColor, 6%);
+        }
+    }
+}
+
+.b-settins-right {
+ .b-content {
+        top: 54px;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        overflow-y: auto;
+        background-color: @darkBackgroundColor;
+        color: @darkTextColor;
+        border: 0;
+        box-shadow: none;
+        border-radius: @contentBorderRadius;
+    }
+}
+
+.legend {
+    color: @darkTextColor;
+    border-bottom-color: lighten(@darkBackgroundColor, 6%);
+}
+
+
+// BUTTONS
+.btn {
+    background-color: @darkBackgroundColor;
+    color: @darkTextColor;
+    border: 1px solid lighten(@darkBackgroundColor, 6%);
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    text-shadow: none;
+    border-radius: @buttonBorderRadius;
+    min-width: 25px;
+
+    &:hover,
+    &:active {
+        background-color: lighten(@darkBackgroundColor, 6%);
+        color: @darkTextColor;
+    }
+
+    &.btn-success {
+        background-color: @primaryColor;
+        border-color: @primaryColor;
+        color: @primaryTextColor;
+        text-shadow: none;
+
+        &:hover {
+            background-color: lighten(@primaryColor, 10%);
+        }
+
+        & .icon-white {
+            color: @primaryTextColor;
+        }
+    }
+
+    &.btn.disabled {
+        background-color: darken(@darkBackgroundColor, 3%);
+        color: darken(@darkTextColor, 70%);
+        cursor: not-allowed;
+        box-shadow: none;
+        border: 1px solid lighten(@darkBackgroundColor, 3%);
+    }
+
+    & .caret,
+    &:hover .caret {
+        border-top-color: @darkTextColor;
+        border-width: 5px;
+    }
+
+    & [class*=" icon-"], 
+    & [class^="icon-"] {
+        text-shadow: none;
+    }
+
+    .btn-group > &.single {
+        border-radius: @buttonBorderRadius !important;
+    }
+
+    .btn-group > &.first {
+        border-top-left-radius: @buttonBorderRadius !important;
+        border-bottom-left-radius: @buttonBorderRadius !important;
+    }
+
+    .btn-group > &.last {
+        border-top-right-radius: @buttonBorderRadius !important;
+        border-bottom-right-radius: @buttonBorderRadius !important;
+    }
+
+    html.textshadow & {
+        text-shadow: none;
+
+        &.btn-danger, 
+        &.btn-primary, 
+        &.btn-success, 
+        &.btn-warning {
+            text-shadow: none;
+        }
+    }
+
+    .dropdown.colored-toggle.open &.dropdown-toggle {
+        color: @primaryColor;
+        background-color: lighten(@darkBackgroundColor, 10%);
+    
+        & [class^="icon-"]::before {
+            color: @primaryColor;
+        }
+    
+        & .caret {
+            border-top-color: @primaryColor;
+        }
+    }
+    
+    .btn-group.open &.btn-transparent.dropdown-toggle {
+        & .caret {
+            border-top-color: @primaryColor;
+        }
+    }
+
+    .b-folders .b-toolbar &,
+    .messageList .toolbar &,
+    #top-system-dropdown-id& {
+        padding: 6px 14px;
+    }
+
+    &.buttonCompose {
+        width: ~"calc(100% - 90px)";
+
+        .b-folders .b-toolbar & {
+            padding: 5px 14px 7px 14px;
+        }
+    }
+
+    &.button-send {
+        padding: 5px 13px 5px 13px;
+        font-size: 14px;
+
+        & [class^="icon-"] {
+            margin-top: 0;
+        }
+    }
+
+    .messageView &.buttonReply {
+        margin-right: -10px;
+    }
+
+    &.buttonCompose.btn-warning.active, 
+    &.buttonCompose.btn-warning.disabled, 
+    &.buttonCompose.btn-warning:hover, 
+    &.buttonCompose.btn-warning[disabled],
+    &.buttonCompose.btn-warning:active {
+        background-color: lighten(@primaryColor, 6%) !important;
+    }
+}
+
+
+// MENU
+@dropdown-menu-color: @darkTextColor;
+@dropdown-menu-background-color: lighten(@darkBackgroundColor, 10%);
+@dropdown-menu-hover-background-color: lighten(@darkBackgroundColor, 20%);
+@dropdown-menu-hover-color: @darkTextColor;
+@dropdown-menu-disabled-color: darken(@darkTextColor, 30%);
+@dropdown-menu-selected-background-color: lighten(@darkBackgroundColor, 40%);
+
+.dropdown-menu {
+    border-radius: @contentBorderRadius;
+    border-top-right-radius: calc(@contentBorderRadius / 3) ;
+    border: 1px solid lighten(@darkBackgroundColor, 6%);
+    margin-top: 6px;
+
+    & .divider {
+        background-color: darken(@darkTextColor, 40%);
+        border-bottom: 0;
+    }
+}
+
+
+// FOLDERS
+@folders-color: @darkTextColor;
+@folders-disabled-color: darken(@darkTextColor, 40%);
+@folders-selected-color: @darkTextColor;
+@folders-selected-background-color: @darkBackgroundColor;
+@folders-selected-rgba-background-color: false;
+@folders-focused-color: @darkTextColor;
+@folders-focused-background-color: @darkBackgroundColor;
+@folders-focused-rgba-background-color: false;
+@folders-hover-color: @darkTextColor;
+@folders-hover-background-color: @darkBackgroundColor;
+@folders-hover-rgba-background-color: false;
+@folders-drop-color: @darkTextColor;
+@folders-drop-background-color: @darkBackgroundColor;
+@folders-drop-rgba-background-color: false;
+
+.b-folders {
+    & .b-toolbar {
+        padding: 10px 0 0 10px;
+    }
+
+    & .b-content {
+        left: 10px;
+        top: 54px;
+    }
+
+    & .b-list-delimiter {
+        border-bottom-color: lighten(@darkBackgroundColor, 6%);
+    }
+
+    & .e-link {
+        height: 34px;
+        line-height: 34px;
+        border-radius: @contentBorderRadius;
+        margin-bottom: 5px;
+        border: 1px solid transparent;
+        font-size: 14px;
+        font-weight: bold;
+
+        &:active,
+        &:hover,
+        &.selected {
+            border: 1px solid lighten(@darkBackgroundColor, 6%);
+        }
+    }
+}
+
+
+// MESSAGE LIST
+@message-list-toolbar-background-color: @darkBackgroundColor;
+@message-list-toolbar-rgba-background-color: false;
+@message-list-toolbar-gradient-start: none;
+@message-list-toolbar-gradient-end: none;
+
+.messageList {
+    & .toolbar {
+        left: 5px;
+    }
+
+    & .btn.buttonMoreSearch {
+        min-width: 16px;
+        border-top-right-radius: @buttonBorderRadius;
+        border-bottom-right-radius: @buttonBorderRadius;
+    }
+
+    & .inputSearch {
+        border-radius: 0;
+        border-top-left-radius: @buttonBorderRadius;
+        border-bottom-left-radius: @buttonBorderRadius;
+        height: 30px;
+    }
+
+    & .b-message-list-wrapper {
+        top: 54px;
+        bottom: 10px;
+        left: 10px;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    & .mainDelimiter {
+        background-color: @darkBackgroundColor;
+    }
+
+    & .b-content {
+        background-color: @darkBackgroundColor;
+
+        & .listSearchDesc {
+            color: @darkTextColor;
+            border-bottom-color: lighten(@darkBackgroundColor, 15%);
+            font-size: 14px;
+        }
+
+        & .listClear {
+            color: @darkTextColor;
+            border-top: 1px solid lighten(@darkBackgroundColor, 10%);
+        }
+
+        & .messageListItem {
+            color: @darkTextColor;
+            background-color: @darkBackgroundColor;
+
+            &.focused,
+            &.selected,
+            &.checked,
+            &.checked.focused {
+                background-color: lighten(@darkBackgroundColor, 10%);
+
+                & .sidebarParent {
+                    background-color: @primaryColor !important;
+                }
+
+                & .delimiter,
+                & + .messageListItem .delimiter {
+                    background-color: @primaryColor;
+                    opacity: 1;
+                }
+            }
+
+            &.unseen {
+                background-color: #ffffd9;
+                color: #333;
+            }
+
+            &.withAttachments .attachment {
+                color: darken(@darkTextColor, 30%);
+                text-shadow: none;
+            }
+
+            & .sidebarParent {
+                background-color: lighten(@darkBackgroundColor, 15%);
+            }
+
+            & .delimiter {
+                background-color: lighten(@darkBackgroundColor, 10%);
+                opacity: 1;
+            }
+
+            &:last-child {
+                border-bottom-color: lighten(@darkBackgroundColor, 15%);
+
+                &.selected {
+                    border-bottom-color: @primaryColor;
+                }
+            }
+
+            & .subjectParent {
+                color: darken(@darkTextColor, 20%);
+            }
+        }
+    }
+
+    & .second-toolbar {
+        border-top-left-radius: @contentBorderRadius;
+        border-top-right-radius: @contentBorderRadius;
+    }
+
+    & .b-footer {
+        border-bottom-left-radius: @contentBorderRadius;
+        border-bottom-right-radius: @contentBorderRadius;
+    }
+    
+}
+
+
+// MESSAGE VIEW
+@message-background-color: @darkBackgroundColor;
+@message-rgba-background-color: false;
+
+.messageView {
+    & .b-content {
+        top: 54px;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        border: 0;
+        border-radius: @contentBorderRadius;
+
+        .messageItemHeader {
+            background-color: @darkBackgroundColor;
+            color: @darkTextColor;
+            border-top-right-radius: @contentBorderRadius;
+            border-top-left-radius: @contentBorderRadius;
+            border-bottom-color: lighten(@darkBackgroundColor, 10%);
+
+            & when (@contentBorderRadius > 10px) {
+                padding-top: @contentBorderRadius - 5px;
+                padding-left: @contentBorderRadius - 5px;
+                padding-right: @contentBorderRadius - 5px;
+            }
+
+            & .informationShort a {
+                color: @primaryColor;
+            }
+
+            .informationFull {
+                background-color: @darkBackgroundColor;
+                color: @darkTextColor;
+                border-color: lighten(@darkBackgroundColor, 10%);
+                border-radius: @contentBorderRadius;
+            }
+        }
+
+        & .messageItem {
+            color: @messageTextColor;
+            background-color: @messageBackgroundColor;
+            border-radius: 0;
+            border-bottom-right-radius: @contentBorderRadius;
+            border-bottom-left-radius: @contentBorderRadius;
+
+            & .showImages {
+                border-bottom-color: lighten(@darkBackgroundColor, 10%);
+                background-color: @darkBackgroundColor;
+                color: darken(@darkTextColor, 20%);
+            }
+        }
+    }
+}
+
+
+// POPUPS
+.popups {
+    background-color: #0000005c;
+
+    & .modal {
+        border-radius: @contentBorderRadius;
+        border: 0;
+
+        & .modal-header {
+            background-color: @darkBackgroundColor;
+            color: @darkTextColor;
+            border-bottom-color: lighten(@darkBackgroundColor, 10%);
+
+            &.b-header-toolbar {
+                background-color: @darkBackgroundColor !important;
+                height: initial;
+            }
+
+            & .close,
+            & .close-custom,
+            & .minimize-custom {
+                font-size: 20px;
+                line-height: 20px;
+                opacity: .6;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+            & .close,
+            & .close-custom {
+                margin-top: 5px;
+                margin-right: 1px;
+            }
+
+            & .minimize-custom {
+                margin-top: 3px;
+                height: 14px;
+                width: 12px;
+            }
+        }
+        & .modal-body {
+            background-color: @darkBackgroundColor;
+            color: @darkTextColor;
+
+            & .b-header {
+                background-color: @darkBackgroundColor;
+                color: @darkTextColor;
+            }
+        }
+        & .modal-footer {
+            background-color: darken(@darkBackgroundColor, 4%);
+            color: @darkTextColor;
+            border-top: 0;
+            box-shadow: none;
+        }
+
+        & .b-view-content {
+            background-color: @darkBackgroundColor;
+            color: @darkTextColor;
+            border-left-color: lighten(@darkBackgroundColor, 10%);
+        }
+
+        & .b-view-content-toolbar {
+            background-color: darken(@darkBackgroundColor, 4%);
+            box-shadow: none;
+        }
+
+        & .b-list-toolbar {
+            background-color: darken(@darkBackgroundColor, 4%);
+            box-shadow: none;
+
+            & .e-search {
+                height: 25px;
+                margin: 10px;
+            }
+        }
+
+        & .b-list-content,
+        & .b-list-footer-toolbar {
+            background-color: @darkBackgroundColor;
+            color: @darkTextColor;
+            box-shadow: none;
+        }
+
+        & .b-list-content{
+            background-color: @darkBackgroundColor;
+            color: @darkTextColor;
+            box-shadow: none;
+
+            & .listClear {
+                background-color: transparent;
+            }
+
+            & .e-contact-item {
+                border-color: lighten(@darkBackgroundColor, 15%);
+
+                & .emailParent,
+                & .nameParent {
+                    font-size: 14px;
+                    color: @darkTextColor;
+                }
+
+                & .sidebarParent {
+                    background-color: lighten(@darkBackgroundColor, 15%);
+                }
+
+                &.selected,
+                &.selected.focused {
+                    background-color: lighten(@darkBackgroundColor, 10%);
+
+                    & .sidebarParent {
+                        background-color: @primaryColor !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// COMPOSER
+.b-compose {
+    .b-header .e-identity {
+        color: @darkTextColor;
+
+        &:hover {
+            color: @primaryColor;
+        }
+    }
+
+    & .attachmentAreaParent {
+        background-color: @darkBackgroundColor;
+        color: @darkTextColor;
+        text-shadow: none;
+        border: 0;
+
+        & .no-attachments-desc {
+            color: darken(@darkTextColor, 30%);
+            text-shadow: none;
+        }
+    }
+
+    & .textAreaParent .cke_wysiwyg_frame, 
+    & .textAreaParent .cke_wysiwyg_div {
+        background-color: @messageBackgroundColor;
+        color: @messageTextColor;
+    }
+}
+
+// CKE
+.cke_chrome {
+    border-top: 1px solid lighten(@darkBackgroundColor, 10%) !important;
+
+    & .cke_top {
+        border-bottom-color: lighten(@darkBackgroundColor, 10%) !important;
+        background: @darkBackgroundColor !important;
+    }
+
+    & .cke_toolgroup {
+        background-color: @darkBackgroundColor !important;
+        color: @darkTextColor !important;
+        border: 1px solid lighten(@darkBackgroundColor, 6%) !important;
+
+        & .cke_button:hover,
+        & .cke_button:active,
+        & .cke_button_on {
+            background-color: lighten(@darkBackgroundColor, 6%) !important;
+        }
+
+        & .cke_button_icon {
+            filter: invert(100%);
+            -webkit-filter: invert(100%);
+        }
+    }
+}
+
+// TEXT FIELDS
+.uneditable-input, 
+input[type="color"], 
+input[type="date"], 
+input[type="datetime-local"], 
+input[type="datetime"], 
+input[type="email"], 
+input[type="month"], 
+input[type="number"], 
+input[type="password"], 
+input[type="search"], 
+input[type="tel"], 
+input[type="text"], 
+input[type="time"], 
+input[type="url"], 
+input[type="week"], 
+select,
+.inputosaurus-container {
+    background-color: @darkBackgroundColor;
+    color: @darkTextColor;
+    border: 1px solid lighten(@darkBackgroundColor, 8%);
+    border-radius: @buttonBorderRadius;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 36px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    box-sizing: border-box;
+
+    &:focus {
+        background-color: lighten(@darkBackgroundColor, 4%);
+    }
+}
+
+.b-contacts-content.modal .b-view-content .contactValueInput, 
+.b-contacts-content.modal .b-view-content .contactValueInputLarge, 
+.b-contacts-content.modal .b-view-content .contactValueTextArea {
+    border-color:lighten(@darkBackgroundColor, 8%);
+    font-size: 14px;
+}
+
+.ui-autocomplete {
+    background-color: @darkBackgroundColor;
+    color: @darkTextColor;
+    border: 1px solid lighten(@darkBackgroundColor, 8%);
+    border-radius: 5px;
+    font-size: 14px;
+
+    & a {
+        color: @darkTextColor;
+
+        &:focus,
+        &:hover,
+        &.ui-state-focus {
+            color: @darkTextColor;
+            background-color: lighten(@darkBackgroundColor, 4%);
+            border-color: transparent;
+        }
+    }
+}
+
+.inputosaurus-container {
+    & .inputosaurus-input {
+        background-color: transparent;
+    }
+    
+    & .inputosaurus-input input {
+        background-color: @darkBackgroundColor;
+        color: @darkTextColor;
+    }
+    &.inputosaurus-focused {
+        background-color: lighten(@darkBackgroundColor, 4%);
+        & .inputosaurus-input input {
+            background-color: lighten(@darkBackgroundColor, 4%);
+            color: @darkTextColor;
+        }
+    }
+    & li {
+        background-color: darken(@darkBackgroundColor, 4%);
+        border: 1px solid lighten(@darkBackgroundColor, 8%);
+        border-radius: 5px;
+        color: @darkTextColor;
+        box-shadow: none;
+        padding-left: 6px;
+        padding-right: 15px;
+
+        & a.ficon {
+            top: 2px;
+            right: 4px;
+        }
+    }
+}
+
+
+// MISC
+.close {
+    color: @darkTextColor;
+    text-shadow: none;
+    opacity: .6;
+
+    &:hover {
+        color: @darkTextColor;
+        opacity: 1;
+    }
+
+    .messageItemHeader & {
+        margin-right: 8px;
+    }
+}
+
+.badge {
+    background-color: @primaryColor;
+    color: @primaryTextColor;
+}
+
+.icon-checkbox-checked, 
+.icon-checkbox-partial, 
+.icon-checkbox-unchecked, 
+.icon-radio-checked, 
+.icon-radio-unchecked {
+    color: darken(@darkTextColor, 30%);
+
+    &:hover,
+    &:active {
+        color: @darkTextColor;
+    }
+}
+
+.b-system-drop-down {
+    & .accountPlace {
+        background-color: @darkBackgroundColor;
+        color: @darkTextColor;
+        text-shadow: none;
+        height: 32px;
+        line-height: 32px;
+        font-weight: normal;
+        border-radius: @buttonBorderRadius;
+        padding: 1px 14px;
+    }
+
+    & .b-toolbar {
+        padding: 10px;
+    }
+}
+
+.g-ui-link {
+    color: @primaryColor;
+}
+
+.ui-resizable-handle.ui-resizable-e {
+    z-index: 9999 !important;
+}
+
+.e-pagenator {
+    & .e-page {
+        font-size: 18px;
+
+        &.current {
+            & .e-page-number {
+                color: @primaryColor;
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+.table-striped tbody tr:nth-child(2n+1) td, .table-striped tbody tr:nth-child(2n+1) th {
+    background-color: lighten(@darkBackgroundColor, 10%);
+}
